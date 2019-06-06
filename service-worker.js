@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/phfone-react/precache-manifest.5640e2868c9ea8560714cea5228c3985.js"
+  "/phfone-react/precache-manifest.37efbf07459df6334ab0ae024d5b71cd.js"
 );
 
 self.addEventListener('message', (event) => {
