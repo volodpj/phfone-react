@@ -26,7 +26,7 @@ class App extends React.Component {
   addIdToBasket(id){
     alert(id);
     this.setState({
-      basketItems: id
+      basketItems: this.state.basketItems.concat(id)
     })
   }
 
