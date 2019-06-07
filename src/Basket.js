@@ -9,14 +9,16 @@ constructor(props){
 }
 
   
-render(){
-  return (
+render(props){
+  console.log(this.props)
+    return (
     <section>
       <p>Shopping Cart</p>
       <ul>
-        <li>Phone 1 <button>x</button></li>
-        <li>Phone 2 <button>x</button></li>
-        <li>Phone 3 <button>x</button></li>
+        {this.props.listBasketItems.map(idPhfone => (
+          <li key={idPhfone}>{ idPhfone }<button>x</button></li>
+        ))}
+        
       </ul>
     </section>
   );

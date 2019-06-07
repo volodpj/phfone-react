@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Catalog = (props) => {
+
+  
   return (
     <ul className="phones">
 
@@ -20,7 +22,9 @@ const Catalog = (props) => {
           </a>
 
           <div className="phones__btn-buy-wrapper">
-            <a className="btn btn-success">
+            <a className="btn btn-success" 
+            onClick={() => { props.addIdToBasket(phone.id) }}
+            >
               Add
             </a>
           </div>

@@ -21,10 +21,18 @@ class App extends React.Component {
     };
   }
 
-  
+  removeIdFromBasket(id){
+    for(let i = 0; this.state.basketItems.length; i++){
+      if(id === this.state.basketItems[i]){
+        this.setState({
+          basketItems: this.state.basketItems.splice(i,1)
+        })
+      }
+    }
+  }
 
   addIdToBasket(id){
-    alert(id);
+    
     this.setState({
       basketItems: this.state.basketItems.concat(id)
     })
@@ -32,14 +40,16 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.basketItems);
+    
     return (
       <div className="App">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2">
               <Filter />
-              <Basket listBasketItems={this.state.basketItems}/>
+              <Basket listBasketItems={this.state.basketItems}
+              removeFromBasket={ (id) => {this.removeIdFromBasket(id)} }
+              />
             </div>
 
             <div className="col-md-10">
@@ -61,6 +71,7 @@ class App extends React.Component {
                       selectedPhone: getById(phoneId),
                     });
                   }}
+                  addIdToBasket = { (id) => {this.addIdToBasket(id)}}
                 />
               ) }
             </div>

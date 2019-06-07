@@ -28,7 +28,7 @@ class Viewer extends React.Component {
   
       <ul className="phone-thumbs">
         { this.props.phone.images.map(imageUrl => (
-          <li>
+          <li key={imageUrl}>
             <img src={imageUrl} onClick={() => {this.chooseMainImg(imageUrl)}}/>
           </li>
         )) }
