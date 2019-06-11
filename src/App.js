@@ -19,25 +19,28 @@ class App extends React.Component {
       basketItems: [],
       
     };
-  }
 
-  removeIdFromBasket(id){
-    for(let i = 0; this.state.basketItems.length; i++){
-      if(id === this.state.basketItems[i]){
-        this.setState({
-          basketItems: this.state.basketItems.splice(i,1)
-        })
+    this.addIdToBasket = (id) => {
+      this.setState({
+        basketItems: this.state.basketItems.concat(id)
+      })
+    }
+
+    this.removeIdFromBasket = (id) => {
+      
+      let arr = this.state.basketItems;
+    
+      for(let i = 0; i < arr.length; i++){
+        if(id === arr[i]){
+          arr.splice(i, 1);
+          this.setState({
+            basketItems: arr
+          })
+        }
       }
+
     }
   }
-
-  addIdToBasket(id){
-    
-    this.setState({
-      basketItems: this.state.basketItems.concat(id)
-    })
-  }
-
 
   render() {
     
@@ -71,7 +74,7 @@ class App extends React.Component {
                       selectedPhone: getById(phoneId),
                     });
                   }}
-                  addIdToBasket = { (id) => {this.addIdToBasket(id)}}
+                  addIdToBasket = {this.addIdToBasket}
                 />
               ) }
             </div>
