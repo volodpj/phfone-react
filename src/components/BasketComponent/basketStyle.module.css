@@ -1,4 +1,4 @@
-.basket_button {
+.button {
     color: #fff; /* цвет текста */
     text-decoration: none; /* убирать подчёркивание у ссылок */
     user-select: none; /* убирать выделение текста */
@@ -10,5 +10,5 @@
     border: none;
     margin-left: 15px;
   } 
-  .basket_button:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
-  .basket_button:active { background: rgb(152,15,0); } /* при нажатии */
+  .button:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+  .button:active { background: rgb(152,15,0); } /* при нажатии */

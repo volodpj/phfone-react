@@ -1,5 +1,5 @@
 import React from 'react';
-import './basketStyle.css'
+import styles from './basketStyle.module.css'
 
 class Basket extends React.Component {
 constructor(props){
@@ -16,7 +16,16 @@ render(){
       <p>Shopping Cart</p>
       <ul>
         {this.props.listBasketItems.map(idPhfone => (
-          <li key={idPhfone}>{ idPhfone }<button className="basket_button" onClick={() => {this.props.removeFromBasket(idPhfone)}}>x</button></li>
+          <li 
+            key={ idPhfone }>
+              <p>{ idPhfone[0] }</p>
+              <p>{ idPhfone[1] }</p>
+            
+            <button 
+              className={styles.button}
+              onClick={() => {this.props.removeFromBasket(idPhfone)}}>x
+            </button>
+          </li>
         ))}
         
       </ul>
