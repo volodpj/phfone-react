@@ -23,26 +23,21 @@ class App extends React.Component {
 
     this.addIdToBasket = (id) => {
 
-      let stateBasketItems = this.state.basketItems;
-
-      if (stateBasketItems.length === 0) {
-        console.log(id)
+      if(this.state.basketItems.length === 0){
         this.setState({
           basketItems: [
-            ...this.state.basketItems,
             [id, 1]
           ]
         })
-        
-      } else {
-        for (let i = 0; i < stateBasketItems.length; i++) {
-
-          if (stateBasketItems[i][0] === id) {
+      }else{
+        for(let i = 0; i < this.state.basketItems.length; i++){
+          if(id === this.state.basketItems[i][0]){
+            let stateBasketItems = this.state.basketItems;
             stateBasketItems[i][1] = stateBasketItems[i][1] + 1;
             this.setState({
               basketItems: stateBasketItems
             })
-          } else {
+          }else{
             this.setState({
               basketItems: [
                 ...this.state.basketItems,
@@ -52,43 +47,18 @@ class App extends React.Component {
           }
         }
       }
+     
 
 
     }
 
 
 
-    // for(let i = 0; i < stateBasketItems.length; i++){
-
-    //   if(stateBasketItems[i][0] === id){
-    //     stateBasketItems[i][1] = stateBasketItems[i][1] + 1;
-    //     this.setState({
-    //       basketItems: stateBasketItems
-    //     })
-    //   }else{
-    //     this.setState({
-    //       basketItems: [
-    //         ...this.state.basketItems,
-    //         [id, 1]
-    //       ]
-    //     })
-    //   }
-    // }
+ 
 
 
 
     this.removeIdFromBasket = (id) => {
-
-      let arr = this.state.basketItems;
-
-      for (let i = 0; i < arr.length; i++) {
-        if (id === arr[i]) {
-          arr.splice(i, 1);
-          this.setState({
-            basketItems: arr
-          })
-        }
-      }
 
     }
   }
@@ -102,7 +72,7 @@ class App extends React.Component {
             <div className="col-md-2">
               <Filter />
               <Basket listBasketItems={this.state.basketItems}
-                removeFromBasket={(id) => { this.removeIdFromBasket(id) }}
+                removeFromBasket={this.removeIdFromBasket }
               />
             </div>
 
@@ -115,7 +85,7 @@ class App extends React.Component {
                       selectedPhone: null,
                     });
                   }}
-                  addIdToBasket={(id) => { this.addIdToBasket(id) }}
+                  addIdToBasket={this.addIdToBasket}
                 />
               ) : (
                   <Catalog
@@ -139,3 +109,32 @@ class App extends React.Component {
 
 
 export default App;
+// let stateBasketItems = this.state.basketItems;
+
+// if (stateBasketItems.length === 0) {
+//   console.log(id)
+//   this.setState({
+//     basketItems: [
+//       ...this.state.basketItems,
+//       [id, 1]
+//     ]
+//   })
+  
+// } else {
+//   for (let i = 0; i < stateBasketItems.length; i++) {
+
+//     if (stateBasketItems[i][0] === id) {
+//       stateBasketItems[i][1] = stateBasketItems[i][1] + 1;
+//       this.setState({
+//         basketItems: stateBasketItems
+//       })
+//     } else {
+//       this.setState({
+//         basketItems: [
+//           ...this.state.basketItems,
+//           [id, 1]
+//         ]
+//       })
+//     }
+//   }
+// }
